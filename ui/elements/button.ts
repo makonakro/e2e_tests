@@ -4,7 +4,7 @@ export default class Button extends BaseElement {
 
   async click() {
     await this.waitForElementToBeVisible();
-    await this.baseElement.click();
+    await this.element.click();
   }
 
 }
