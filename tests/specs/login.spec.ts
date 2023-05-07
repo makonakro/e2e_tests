@@ -14,9 +14,7 @@ test.describe('Login', () => {
   })
   test('login with valid credentials', async ({ steps: { pages }, page }) => {
     await test.step('Go to login page', async () => {
-      await pages.home.clickTab('Log in');
-      expect (await pages.login.title.isVisible).toBeTruthy();
-    
+      await pages.home.clickTab('Log in');    
     })
     await test.step('Fill email', async () => {
       await pages.login.email_input.fill_input(process.env.USER_EMAIL);
