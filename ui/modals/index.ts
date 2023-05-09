@@ -5,6 +5,6 @@ import AddTask from "./add-task";
 export class Modals {
   constructor (
     private readonly pages: Pages,
-    readonly addTask = new AddTask(pages)
+    readonly add_task = new AddTask(pages)
   ) {}
 }

@@ -26,5 +26,4 @@ get task_description() {
 get add_task() {
   return new Button(this.page, this.modal.locator(SELECTORS.add_task_button));
 }
-
 }
