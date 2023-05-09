@@ -1,8 +1,6 @@
 import {test} from "../../test-config/test-base"
 import { expect } from "@playwright/test"
 
-
-
 test.describe('Login', () => {
   test.beforeEach(async ({steps: { pages }, page}) => {
     await test.step('I open home page', async () => {
@@ -23,7 +21,9 @@ test.describe('Login', () => {
       await pages.login.password_input.fill_input(process.env.USER_PASSWORD);
     })
     await test.step('Click submit button', async () => {
-      await pages.login.submit_btn.click();
+      await pages.login.click_login_btn();
+      expect (await pages.main.title.isVisible).toBeTruthy();
+      
     })
   })
 })    

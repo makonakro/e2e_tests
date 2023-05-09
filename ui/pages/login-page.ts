@@ -28,4 +28,15 @@ export default class LoginPage extends BasePage {
   get title() {
     return new TextBox(this.page, SELECTORS.title);
   }
+
+  async click_login_btn() {
+    this.submit_btn.click();
+    const [response] = await Promise.all([
+      this.page.waitForResponse(
+        response => response.url().includes('/login') && response.request().method() === 'POST',
+      ),
+      this.submit_btn.click()
+    ]);
+
+  }
 }
