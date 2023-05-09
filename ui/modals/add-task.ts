@@ -6,7 +6,8 @@ import BaseModal from "./base-modal";
 const SELECTORS = {
   dialog: 'div[role="dialog"]',
   add_task_button: 'button:has-text("Add task")',
-  task_name: '[aria-label="Task name"]'
+  task_name: '[aria-label="Task name"]',
+  task_description: '[aria-label="Description"]'
 }
 
 export default class AddTask extends BaseModal {
@@ -16,6 +17,10 @@ export default class AddTask extends BaseModal {
 
 get task_name() {
   return new InputField(this.page, this.modal.locator(SELECTORS.task_name));
+}
+
+get task_description() {
+  return new InputField(this.page, this.modal.locator(SELECTORS.task_description));
 }
 
 get add_task() {
