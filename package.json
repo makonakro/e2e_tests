@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "example of e2e tests",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npm run playwright test --workers=1 --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/makonakro/e2e_tests.git"
@@ -17,5 +19,8 @@
   "homepage": "https://github.com/makonakro/e2e_tests#readme",
   "devDependencies": {
     "@playwright/test": "^1.33.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
