@@ -37,6 +37,12 @@ export default class LoginPage extends BasePage {
       ),
       this.submit_btn.click()
     ]);
-
   }
+
+    async log_in(email, password) {
+      await this.email_input.fill_input(email);
+      await this.password_input.fill_input(password);
+      await this.click_login_btn();
+    }
+  
 }
