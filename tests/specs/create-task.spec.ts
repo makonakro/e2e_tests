@@ -16,7 +16,7 @@ test.describe('Login', () => {
       await pages.login.log_in(process.env.USER_EMAIL, process.env.USER_PASSWORD);
   })
   })
-  test.only('Add task without description', async ({ steps: { pages }, page }) => {
+  test('Add task without description', async ({ steps: { pages }, page }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()   
     })
