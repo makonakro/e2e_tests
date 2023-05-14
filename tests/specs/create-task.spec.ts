@@ -1,7 +1,7 @@
 import {test} from "../../test-config/test-base"
 import { expect } from "@playwright/test"
 
-test.describe('Login', () => {
+test.describe('Add task', () => {
   test.beforeEach(async ({steps: { pages }, page}) => {
     await test.step('I open home page', async () => {
       await page.goto('');
