@@ -25,6 +25,7 @@ test.describe('Login', () => {
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click();
+      expect(await pages.main.taskList.isListItemVisible('new_task')).toBeTruthy();
     })
 })
 })
