@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/makonakro/e2e_tests#readme",
   "devDependencies": {
-    "@playwright/test": "^1.33.0"
+    "@playwright/test": "^1.33.0",
+    "eslint": "^8.40.0"
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
