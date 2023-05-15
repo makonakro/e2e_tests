@@ -28,5 +28,21 @@ test.describe('Add task', () => {
       expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy();
     })
 })
+test('Add task with description', async ({ steps: { pages }, page, name }) => {
+  await test.step('Click add task', async () => {
+    await pages.main.quick_add.click()   
+  })
+  await test.step('Add task name', async () => {
+    await pages.modals.add_task.task_name.fill_input(name)
+  })
+  await test.step('Add task description', async () => {
+    await pages.modals.add_task.task_description.fill_input('new task with description')
+  })
+  await test.step('Click "Add task" button', async () => {
+    await pages.modals.add_task.add_task.click();
+    expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy();
+    expect(await pages.main.taskList.getListItemText(name)).toContain('new task with description');
+  })
+})
 })
   
