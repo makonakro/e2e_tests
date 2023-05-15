@@ -16,16 +16,16 @@ test.describe('Add task', () => {
       await pages.login.log_in(process.env.USER_EMAIL, process.env.USER_PASSWORD);
   })
   })
-  test('Add task without description', async ({ steps: { pages }, page }) => {
+  test('Add task without description', async ({ steps: { pages }, page, name }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()   
     })
     await test.step('Add task name', async () => {
-      await pages.modals.add_task.task_name.fill_input('new_task')
+      await pages.modals.add_task.task_name.fill_input(name)
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click();
-      expect(await pages.main.taskList.isListItemVisible('new_task')).toBeTruthy();
+      expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy();
     })
 })
 })
