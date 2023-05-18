@@ -1,13 +1,14 @@
-import { Pages } from "./index";
+import { Pages } from './index'
 
-const SELECTORS = {
-
-}
+const SELECTORS = {}
 
 export default class BasePage {
-  constructor(protected readonly pages: Pages, protected readonly page = pages.page) {}
+  constructor(
+    protected readonly pages: Pages,
+    protected readonly page = pages.page
+  ) {}
 
   protected locator(el: string) {
-    return this.page.locator(el);
+    return this.page.locator(el)
   }
 }

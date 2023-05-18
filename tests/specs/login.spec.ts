@@ -1,29 +1,28 @@
-import {test} from "../../test-config/test-base"
-import { expect } from "@playwright/test"
+import { test } from '../../test-config/test-base'
+import { expect } from '@playwright/test'
 
 test.describe('Login', () => {
-  test.beforeEach(async ({steps: { pages }, page}) => {
+  test.beforeEach(async ({ steps: { pages }, page }) => {
     await test.step('I open home page', async () => {
-      await page.goto('');
+      await page.goto('')
     })
     await test.step('I select En language', async () => {
-      await pages.home.chooseEnLanguage;
+      await pages.home.chooseEnLanguage
     })
   })
   test('login with valid credentials', async ({ steps: { pages }, page }) => {
     await test.step('Go to login page', async () => {
-      await pages.home.clickTab('Log in');    
+      await pages.home.clickTab('Log in')
     })
     await test.step('Fill email', async () => {
-      await pages.login.email_input.fill_input(process.env.USER_EMAIL);
+      await pages.login.email_input.fill_input(process.env.USER_EMAIL)
     })
     await test.step('Fill password', async () => {
-      await pages.login.password_input.fill_input(process.env.USER_PASSWORD);
+      await pages.login.password_input.fill_input(process.env.USER_PASSWORD)
     })
     await test.step('Click submit button', async () => {
-      await pages.login.click_login_btn();
-      expect (await pages.main.title.isVisible).toBeTruthy();
-      
+      await pages.login.click_login_btn()
+      expect(await pages.main.title.isVisible).toBeTruthy()
     })
   })
-})    
+})
