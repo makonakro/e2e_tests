@@ -15,6 +15,7 @@ module.exports = {
     semi: ['warn', 'always'],
     'no-extra-semi': 'warn',
     'no-undef': 'error',
-    'unused-imports/no-unused-imports': 'error'
+    'unused-imports/no-unused-imports': 'error',
+    "eol-last": "error"
   }
 };
