@@ -59,4 +59,20 @@ test.describe('Add task', () => {
       )
     })
   })
+  test('Add task with date and priority', async ({
+    steps: { pages },
+    page,
+    name,
+  }) => {
+    await test.step('Click add task', async () => {
+      await pages.main.quick_add.click()
+    })
+    await test.step('Add task name', async () => {
+      await pages.modals.add_task.task_name.fill_input(name)
+    })
+    await test.step('Add date', async () => {
+      await pages.modals.add_task.add_date.click()
+      await pages.modals.add_date.tomorrow.click()
+    })
+  })
 })

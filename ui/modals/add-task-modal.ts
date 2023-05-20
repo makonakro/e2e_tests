@@ -8,6 +8,7 @@ const SELECTORS = {
   add_task_button: 'button:has-text("Add task")',
   task_name: '[aria-label="Task name"]',
   task_description: '[aria-label="Description"]',
+  add_date: '[aria-label="Set due date"]'
 }
 
 export default class AddTask extends BaseModal {
@@ -28,5 +29,9 @@ export default class AddTask extends BaseModal {
 
   get add_task() {
     return new Button(this.page, this.modal.locator(SELECTORS.add_task_button))
+  }
+
+  get add_date() {
+    return new Button(this.page, SELECTORS.add_date)
   }
 }
