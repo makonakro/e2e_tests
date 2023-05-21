@@ -23,7 +23,7 @@ export default class Dropdown extends BaseElement {
     this.dropdownItem = dropdownItem
   }
 
-  private async getDropdownItemByIndexOrText(index: string | Locator, exact: boolean) {
+  private async getDropdownItemByText(index: string | Locator, exact: boolean) {
     let dropdownItem: Locator;
     await this.dropdown.waitFor();
       dropdownItem = this.dropdown.locator(
@@ -39,4 +39,6 @@ export default class Dropdown extends BaseElement {
     await this.element.waitFor()
     await this.element.click()
   }
+
+
 }
