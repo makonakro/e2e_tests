@@ -36,7 +36,6 @@ export default class LoginPage extends BasePage {
           response.url().includes('/login') &&
           response.request().method() === 'POST'
       ),
-      this.submit_btn.click(),
     ])
   }
 

@@ -19,9 +19,17 @@ test.describe('Add task', () => {
       )
     })
   })
+  test.afterEach(async ({ steps: { pages }, page }) => {
+    await test.step('I do clean up', async () => {
+      await pages.main.open_task.click()
+      await pages.task.task_menu.click()
+      await pages.modals.task_menu.delete_task.click()
+      await pages.modals.delete_task.delete_task()
+    })
+  })
+
   test('Add task without description', async ({
     steps: { pages },
-    page,
     name,
   }) => {
     await test.step('Click add task', async () => {
@@ -32,12 +40,11 @@ test.describe('Add task', () => {
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click()
-      expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy()
+      expect(await pages.main.task_list.isListItemVisible(name)).toBeTruthy()
     })
   })
   test('Add task with description', async ({
     steps: { pages },
-    page,
     name,
   }) => {
     await test.step('Click add task', async () => {
@@ -53,8 +60,8 @@ test.describe('Add task', () => {
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click()
-      expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy()
-      expect(await pages.main.taskList.getListItemText(name)).toContain(
+      expect(await pages.main.task_list.isListItemVisible(name)).toBeTruthy()
+      expect(await pages.main.task_list.getListItemText(name)).toContain(
         'new task with description'
       )
     })
