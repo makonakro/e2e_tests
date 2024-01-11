@@ -28,10 +28,7 @@ test.describe('Add task', () => {
     })
   })
 
-  test('Add task without description', async ({
-    steps: { pages },
-    name,
-  }) => {
+  test('Add task without description', async ({ steps: { pages }, name }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()
     })
@@ -43,10 +40,7 @@ test.describe('Add task', () => {
       expect(await pages.main.task_list.isListItemVisible(name)).toBeTruthy()
     })
   })
-  test('Add task with description', async ({
-    steps: { pages },
-    name,
-  }) => {
+  test('Add task with description', async ({ steps: { pages }, name }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()
     })

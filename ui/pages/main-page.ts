@@ -8,7 +8,7 @@ const SELECTORS = {
   quick_add_button: `[data-testid="app-sidebar-container"] button:has-text('Add task')`,
   task_list: '.items',
   task: '.task_list_item__content__wrapper',
-  task_menu: '[data-testid="more_menu"]'
+  task_menu: '[data-testid="more_menu"]',
 }
 
 export default class MainPage extends BasePage {
@@ -31,5 +31,4 @@ export default class MainPage extends BasePage {
   get open_task() {
     return new Button(this.page, SELECTORS.task)
   }
-
 }

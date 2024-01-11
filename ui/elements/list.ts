@@ -46,7 +46,7 @@ export default class List extends BaseElement {
     const listItem = await this.getListItem(identifier)
     return listItem.isVisible()
   }
-  
+
   async getListItemText(identifier: string | number) {
     return (await this.getListItem(identifier)).innerText()
   }
