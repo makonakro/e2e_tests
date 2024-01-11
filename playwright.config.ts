@@ -10,7 +10,7 @@ export default defineConfig({
   workers: 1,
   reporter: 'html',
   use: {
-    baseURL: process.env.USER_BASE_URL,
+    baseURL: process.env.BASE_URL,
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
     browserName: 'chromium',

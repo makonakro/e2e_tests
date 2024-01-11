@@ -7,7 +7,7 @@ test.describe('Add task', () => {
     await test.step('I open home page', async () => {
       await pages.home.open()
     })
-    await addCookie('NEXT_LOCALE', 'en', context, process.env.USER_BASE_URL!)
+    await addCookie('NEXT_LOCALE', 'en', context, process.env.BASE_URL!)
     await test.step('Go to login page', async () => {
       await pages.home.clickTab('Log in')
     })
