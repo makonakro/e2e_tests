@@ -26,4 +26,8 @@ export default class HomePage extends BasePage {
   async clickTab(tab: Tab) {
     await this.page.click(SELECTORS.sharedNavigation(tab))
   }
+
+  async open() {
+    return super.open('/')
+  }
 }

@@ -7,6 +7,7 @@ export default defineConfig({
   timeout: 30000,
   testDir: './tests/specs',
   retries: process.env.CI ? 2 : 0,
+  workers: 1,
   reporter: 'html',
   use: {
     baseURL: process.env.USER_BASE_URL,

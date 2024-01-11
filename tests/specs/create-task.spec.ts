@@ -1,14 +1,13 @@
+import { addCookie } from '../../helpers/add-cookie'
 import { test } from '../../test-config/test-base'
 import { expect } from '@playwright/test'
 
 test.describe('Add task', () => {
-  test.beforeEach(async ({ steps: { pages }, page }) => {
+  test.beforeEach(async ({ steps: { pages }, context }) => {
     await test.step('I open home page', async () => {
-      await page.goto('/')
+      await pages.home.open()
     })
-    await test.step('I select En language', async () => {
-      await pages.home.chooseEnLanguage
-    })
+    await addCookie('NEXT_LOCALE', 'en', context, process.env.USER_BASE_URL!)
     await test.step('Go to login page', async () => {
       await pages.home.clickTab('Log in')
     })
@@ -19,7 +18,7 @@ test.describe('Add task', () => {
       )
     })
   })
-  test.afterEach(async ({ steps: { pages }, page }) => {
+  test.afterEach(async ({ steps: { pages }}) => {
     await test.step('I do clean up', async () => {
       await pages.main.open_task.click()
       await pages.task.task_menu.click()

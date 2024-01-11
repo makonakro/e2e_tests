@@ -44,4 +44,8 @@ export default class LoginPage extends BasePage {
     await this.password_input.fill_input(password)
     await this.click_login_btn()
   }
+
+  async open() {
+    return super.open('/auth/login')
+  }
 }
