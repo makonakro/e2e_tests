@@ -12,7 +12,7 @@ export default class BasePage {
     return this.page.locator(el)
   }
 
-  async open(path:string) {
+  async open(path: string) {
     return this.page.goto(path)
   }
 }

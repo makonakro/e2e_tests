@@ -18,7 +18,7 @@ test.describe('Add task', () => {
       )
     })
   })
-  test.afterEach(async ({ steps: { pages }}) => {
+  test.afterEach(async ({ steps: { pages } }) => {
     await test.step('I do clean up', async () => {
       await pages.main.open_task.click()
       await pages.task.task_menu.click()
