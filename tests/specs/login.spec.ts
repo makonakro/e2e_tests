@@ -4,7 +4,7 @@ import { expect } from '@playwright/test'
 test.describe('Login', () => {
   test.beforeEach(async ({ steps: { pages }, page }) => {
     await test.step('I open home page', async () => {
-      await page.goto('')
+      await page.goto('/')
     })
     await test.step('I select En language', async () => {
       await pages.home.chooseEnLanguage
