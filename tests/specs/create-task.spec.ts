@@ -1,5 +1,5 @@
-import { addCookie } from '../../helpers/add-cookie'
-import { test } from '../../test-config/test-base'
+import { addCookie } from 'helpers/add-cookie'
+import { test } from 'test-config/test-base'
 import { expect } from '@playwright/test'
 
 test.describe('Add task', () => {

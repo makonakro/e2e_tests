@@ -1,4 +1,4 @@
-import { test } from '../../test-config/test-base'
+import { test } from 'test-config/test-base'
 import { expect, request } from '@playwright/test'
 import axios from 'axios'
 

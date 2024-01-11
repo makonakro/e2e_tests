@@ -1,6 +1,3 @@
-import { Pages } from './index'
-import Button from '../elements/button'
-import InputField from '../elements/input-field'
 import BasePage from './base-page'
 import Select from '../elements/select'
 

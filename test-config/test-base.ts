@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test'
-import { Steps } from '../ui/steps'
-import CommonUtils from '../helpers/name-generator'
+import { Steps } from 'ui/steps'
+import CommonUtils from 'helpers/name-generator'
 
 export const test = base.extend<
   { steps: Steps },
