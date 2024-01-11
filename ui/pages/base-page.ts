@@ -11,4 +11,8 @@ export default class BasePage {
   protected locator(el: string) {
     return this.page.locator(el)
   }
+
+  async open(path:string) {
+    return this.page.goto(path)
+  }
 }
