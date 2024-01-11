@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "ESNext",
+    "target": "ESNext",
+    "sourceMap": false,
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "*": ["./*"],
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts"]
+}
