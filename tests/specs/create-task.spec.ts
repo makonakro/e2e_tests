@@ -1,14 +1,13 @@
+import { addCookie } from '../../helpers/add-cookie'
 import { test } from '../../test-config/test-base'
 import { expect } from '@playwright/test'
 
 test.describe('Add task', () => {
-  test.beforeEach(async ({ steps: { pages }, page }) => {
+  test.beforeEach(async ({ steps: { pages }, context }) => {
     await test.step('I open home page', async () => {
-      await page.goto('')
+      await pages.home.open()
     })
-    await test.step('I select En language', async () => {
-      await pages.home.chooseEnLanguage
-    })
+    await addCookie('NEXT_LOCALE', 'en', context, process.env.BASE_URL!)
     await test.step('Go to login page', async () => {
       await pages.home.clickTab('Log in')
     })
@@ -19,11 +18,16 @@ test.describe('Add task', () => {
       )
     })
   })
-  test('Add task without description', async ({
-    steps: { pages },
-    page,
-    name,
-  }) => {
+  test.afterEach(async ({ steps: { pages }}) => {
+    await test.step('I do clean up', async () => {
+      await pages.main.open_task.click()
+      await pages.task.task_menu.click()
+      await pages.modals.task_menu.delete_task.click()
+      await pages.modals.delete_task.delete_task()
+    })
+  })
+
+  test('Add task without description', async ({ steps: { pages }, name }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()
     })
@@ -32,14 +36,10 @@ test.describe('Add task', () => {
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click()
-      expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy()
+      expect(await pages.main.task_list.isListItemVisible(name)).toBeTruthy()
     })
   })
-  test('Add task with description', async ({
-    steps: { pages },
-    page,
-    name,
-  }) => {
+  test('Add task with description', async ({ steps: { pages }, name }) => {
     await test.step('Click add task', async () => {
       await pages.main.quick_add.click()
     })
@@ -53,8 +53,8 @@ test.describe('Add task', () => {
     })
     await test.step('Click "Add task" button', async () => {
       await pages.modals.add_task.add_task.click()
-      expect(await pages.main.taskList.isListItemVisible(name)).toBeTruthy()
-      expect(await pages.main.taskList.getListItemText(name)).toContain(
+      expect(await pages.main.task_list.isListItemVisible(name)).toBeTruthy()
+      expect(await pages.main.task_list.getListItemText(name)).toContain(
         'new task with description'
       )
     })

@@ -36,7 +36,6 @@ export default class LoginPage extends BasePage {
           response.url().includes('/login') &&
           response.request().method() === 'POST'
       ),
-      this.submit_btn.click(),
     ])
   }
 
@@ -44,5 +43,9 @@ export default class LoginPage extends BasePage {
     await this.email_input.fill_input(email)
     await this.password_input.fill_input(password)
     await this.click_login_btn()
+  }
+
+  async open() {
+    return super.open('/auth/login')
   }
 }

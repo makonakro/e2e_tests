@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test'
 import { Steps } from '../ui/steps'
-import CommonUtils from '../common-utilities/common-utils'
+import CommonUtils from '../helpers/name-generator'
 
 export const test = base.extend<
   { steps: Steps },
@@ -14,7 +14,7 @@ export const test = base.extend<
   },
   name: [
     async ({ browser }, use) => {
-      const taskName = CommonUtils.taskName()
+      const taskName = CommonUtils.generate_task_name()
       await use(taskName)
     },
     { scope: 'worker', auto: true },
