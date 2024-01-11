@@ -9,7 +9,7 @@ test.describe('Login', () => {
     })
     await addCookie('NEXT_LOCALE', 'en', context, process.env.BASE_URL!)
   })
-  test('login with valid credentials', async ({ steps: { pages }}) => {
+  test('login with valid credentials', async ({ steps: { pages } }) => {
     await test.step('Go to login page', async () => {
       await pages.home.clickTab('Log in')
     })

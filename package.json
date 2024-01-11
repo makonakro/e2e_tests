@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run playwright test --workers=1 --headed",
     "lint": "eslint .",
-    "format": "prettier --write \"**/*.ts\""
+    "format": "prettier --write \"**/*.ts\"",
+    "typecheck": "tsc"
   },
   "repository": {
     "type": "git",
